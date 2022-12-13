@@ -18,12 +18,13 @@ app.layout = html.Div(id = 'div1'
                             value=['home'])
                         , html.Br()
                         , html.P("Custom terms", style={'display': 'inline-block'})
-                        , dcc.Input(id="custom", type="text", value="", style={'marginRight':'10px', 'display': 'inline-block'})
+                        , dcc.Input(id="custom", type="text", value="", style={'marginLeft':'10px', 'display': 'inline-block'})
                         , html.Br()
                         , html.P("Search string")
                         # , dcc.Input(id='searchstring', type="text", value="", style={'display': 'inline-block'})
                         , html.Div(id='searchstring', children="", style={'display': 'inline-block'})
-                        , dcc.Clipboard(target_id="searchstring", style={'display': 'inline-block'})
+                        , dcc.Clipboard(target_id="searchstring", style={'marginLeft':'10px', 'display': 'inline-block'})
+                        , html.Br()
                         , html.Br()
                         , html.Button('Open Pubmed', id='pubmed_btn', n_clicks=0)
                         , html.Div(id='btn_pressed', children="")
@@ -36,7 +37,6 @@ app.layout = html.Div(id = 'div1'
               )
 def render_searchstring(checkboxes, custom):
 
-    print("Rendering search string")
     return generate_searchstring(checkboxes, custom)
 
 @app.callback(Output('btn_pressed', 'children'),
@@ -82,5 +82,5 @@ def generate_searchstring(checkboxes, custom):
     return pubmed_search_string
 
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0', port=8080, debug=True)
-    #app.run_server(host='0.0.0.0', port=8080, debug=True, dev_tools_hot_reload=True)
+    # app.run_server(host='0.0.0.0', port=8080, debug=True)
+    app.run_server(debug=True, dev_tools_hot_reload=True)

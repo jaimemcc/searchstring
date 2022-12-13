@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>COST Homecage Search String Generator</title>
+</head>
+
+<h1>COST Homecage Search String Generator</h1>
+
+<body>
+    <form action="{{ url_for('index')}}" method="post">
+        <label for="auto">Automated:</label>
+        <input type="checkbox" id="auto" name="auto" value=True checked><br>
+
+        <label for="homecage">Home cage:</label>
+        <input type="checkbox" id="homecage" name="hello" value="davidism" checked><br>
+
+        <label for="custom">Custom terms:</label>
+        <input type="text" id="custom" name="hello"><br>
+
+        <input type="submit" Value="Generate search string"><br>
+
+        <label for="string">Search string</label>
+        <input type="text" id="string" name="searchstring" value=""><br>
+
+        <button type="button">Open in  Pubmed</button>
+
+    </form>
+
+</body>
